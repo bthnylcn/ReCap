@@ -8,14 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity, TContext>:IEntityRepository<TEntity>
-        //TEntity bir veritabanı tablosu ama IEntity değil yeni
-        //TContext bir veritabanı olsun ama yeni
-        where TEntity : class,IEntity,new()
+    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
+        where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
         public void Add(TEntity entity)
         {
+            //IDisposable pattern implementation of c#
             using (TContext context = new TContext())
             {
                 var addedEntity = context.Entry(entity);
@@ -38,11 +37,9 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return context.Set<TEntity>().FirstOrDefault(filter);
+                return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
-
-
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
@@ -53,8 +50,6 @@ namespace Core.DataAccess.EntityFramework
                     : context.Set<TEntity>().Where(filter).ToList();
             }
         }
-
-
 
         public void Update(TEntity entity)
         {
