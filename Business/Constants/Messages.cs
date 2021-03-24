@@ -17,7 +17,7 @@ namespace Business.Constants
         public static string CarNameInvalid = "Araç ismi minimum 2 karakter olmalıdır";
 
         public static string BrandAdded = "Marka başarıyla veritabanına eklendi.";
-        public static string BrandUpdate = "Marka başarıyla güncellendi.";
+        public static string BrandUpdated = "Marka başarıyla güncellendi.";
         public static string BrandsListed = "Markalar Listeleniyor...";
         public static string BrandDeleted = "Marka başarıyla veritabanından silindi.";
 
@@ -32,6 +32,12 @@ namespace Business.Constants
         public static string UserNotDeleted = "HATA. Kullanıcı Silinemedi";
         public static string UserUpdated = "Kullanıcı Güncellendi";
         public static string UsersListed = "Kullanıcılar Listeleniyor...";
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string PasswordError = "Şifreniz Yanlış";
+        public static string SuccessfulLogin = "Başarılı Giriş";
+        public static string UserRegistered = "Kullanıcı Kaydoldu";
+        public static string UserAlreadyExists = "Kullanıcı Zaten Var";
+
 
         public static string CustomerAdded = "Müşteri Eklendi";
         public static string CustomerNotAdded = "HATA. Müşteri Eklenemedi";
@@ -51,6 +57,8 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem Bakımda";
         public static string AuthorizationDenied = "Yetkiniz yok";
         public static string CarImageLimitExceeded = "Fotoğraf yükleme limitine takıldınız. En fazla 5 fotoğraf eklenebilir.";
+        public static string AccessTokenCreated = "Token Oluşturuldu";
+        public static string CanNotBeBlank = "Alan Boş Olamaz";
         
     }
 }

@@ -33,6 +33,16 @@ namespace Business.Concrete
             throw new System.NotImplementedException();
         }
 
+        public IDataResult<User> GetByMail(string email)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IResult Update(User user)
         {
             throw new System.NotImplementedException();

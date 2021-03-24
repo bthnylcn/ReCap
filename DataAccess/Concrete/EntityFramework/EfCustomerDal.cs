@@ -29,5 +29,10 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
+        public List<CustomerDetailDto> GetCustomerDetails()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

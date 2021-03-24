@@ -36,6 +36,11 @@ namespace Business.Concrete
             throw new System.NotImplementedException();
         }
 
+        public IDataResult<List<Rental>> GetRentalByUndelivered()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IDataResult<List<CarRentalDetailDto>> GetRentalDetails()
         {
             throw new System.NotImplementedException();

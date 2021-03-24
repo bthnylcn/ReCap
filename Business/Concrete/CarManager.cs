@@ -77,5 +77,35 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
 
         }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrand(int brandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByColor(int colorId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByColorAndByBrand(int colorId, int brandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCar(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
+        IDataResult<Car> ICarService.GetById(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult TransactionalTest(Car car)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

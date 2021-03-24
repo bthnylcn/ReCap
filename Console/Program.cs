@@ -16,7 +16,7 @@ namespace ConsoleUI
             //CarDelete();
             //CarUpdate();
 
-            RentalAdd();
+            //RentalAdd();
 
         }
 
