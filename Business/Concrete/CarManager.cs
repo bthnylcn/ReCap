@@ -23,22 +23,22 @@ namespace Business.Concrete
         {
             if ((car.ModelName.Length < 2) && (car.DailyPrice <= 100))
             {
-                return new ErrorResult(Messages.ProductNameInvalid);
+                return new ErrorResult(Messages.CarNameInvalid);
                 
             }
             _carDal.Add(car);
-            return new SuccessResult(Messages.ProductAdded);
+            return new SuccessResult(Messages.CarAdded);
 
         }
         public IResult Update(Car car)
         {
             if ((car.ModelName.Length < 2) && (car.DailyPrice <= 0))
             {
-                return new ErrorResult(Messages.ProductNameInvalid);
+                return new ErrorResult(Messages.CarNameInvalid);
 
             }
             _carDal.Update(car);
-            return new SuccessResult(Messages.ProductUpdated);
+            return new SuccessResult(Messages.CarUpdated);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -74,7 +74,7 @@ namespace Business.Concrete
 
             }
             _carDal.Delete(car);
-            return new SuccessResult(Messages.ProductDeleted);
+            return new SuccessResult(Messages.CarDeleted);
 
         }
     }

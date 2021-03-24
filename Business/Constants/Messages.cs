@@ -7,23 +7,50 @@ using Entities.Concrete;
 
 namespace Business.Constants
 {
-    public static class Messages
+    public class Messages
     {
-        public static string ProductAdded = "Ürün eklendi.";
-        public static string ProductNameInvalid = "Ürün ismi geçersiz.";
-        public static string MaintenanceTime = "Sistem bakımda..";
-        public static string ProductsListed = "Ürünler listelendi.";
-        public static string ProductDeleted = "Ürün silindi.";
-        public static string ProductsCountOfCategory = "En fazla 10 ürün eklenebilir.";
-        public static string ProductNameAlreadyExists = "Bu isimde zaten başka bir ürün var.";
-        public static string CategoryLimitExceded = "Kategori limiti aşıldığı için yeni ürün eklenemiyor.";
-        public static string AuthorizationDenied = "Yetkiniz yok.";
-        public static string UserRegistered = "Kayıt oldu.";
-        public static string UserNotFound = "Kullanıcı bulunamadı.";
-        public static string PasswordError = "Parola hatası.";
-        public static string SuccessfulLogin = "Başarılı giriş.";
-        public static string UserAlreadyExists = "Kullanıcı zaten var.";
-        public static string AccessTokenCreated = "Erişim tokeni oluşturuldu.";
-        public static string ProductCountOfCategoryError = "Bu kategoride yeterli ürün var.";
+        public static string CarAdded = "Araç Eklendi";
+        public static string CarUpdated = "Araç Güncellendi";
+        public static string CarsListed = "Mevcut Araçlar Listeleniyor...";
+        public static string CarDeleted = "Araç silindi";
+        public static string CheckDailyPrice = "Günlük kira ücreti 0'dan fazla olmalı";
+        public static string CarNameInvalid = "Araç ismi minimum 2 karakter olmalıdır";
+
+        public static string BrandAdded = "Marka başarıyla veritabanına eklendi.";
+        public static string BrandUpdate = "Marka başarıyla güncellendi.";
+        public static string BrandsListed = "Markalar Listeleniyor...";
+        public static string BrandDeleted = "Marka başarıyla veritabanından silindi.";
+
+        public static string ColorAdded = "Renk Eklendi";
+        public static string ColorUpdate = "Renk Güncellendi";
+        public static string ColorListed = "Renkler Listeleniyor...";
+        public static string ColorDeleted = "Renk Silindi";
+
+        public static string UserAdded = "Kullanıcı Eklendi";
+        public static string FirstNameLastNameInvalid = "İsim veya Soyisim Girilmemiş";
+        public static string UserDeleted = "Kullanıcı Silindi";
+        public static string UserNotDeleted = "HATA. Kullanıcı Silinemedi";
+        public static string UserUpdated = "Kullanıcı Güncellendi";
+        public static string UsersListed = "Kullanıcılar Listeleniyor...";
+
+        public static string CustomerAdded = "Müşteri Eklendi";
+        public static string CustomerNotAdded = "HATA. Müşteri Eklenemedi";
+        public static string CustomerDeleted = "Müşteri Silindi";
+        public static string CustomerNotDeleted = "HATA. Müşteri Silinemedi";
+        public static string CustomerUpdated = "Müşteri Güncellendi";
+        public static string CustomersListed = "Müşteriler Listeleniyor...";
+
+        public static string RentalAdded = "Kiralama Bilgisi Eklendi";
+        public static string RentalAddedError = "Araç teslim edilmediği için tekrar kiraya verilemez";
+        public static string RentalUpdateReturnDate = "Araç Teslim Alındı";
+        public static string RentalUpdateReturnDateError = "Araç Teslim Alınmış";
+        public static string RentalUpdated = "Kiralama Bilgisi Güncellendi";
+        public static string RentalListed = "Kiralama Bilgileri Listeleniyor...";
+        public static string RentalDeleted = "Kiralama Bilgisi Silindi";
+
+        public static string MaintenanceTime = "Sistem Bakımda";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string CarImageLimitExceeded = "Fotoğraf yükleme limitine takıldınız. En fazla 5 fotoğraf eklenebilir.";
+        
     }
 }

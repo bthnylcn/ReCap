@@ -11,11 +11,19 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarTest();
-           //CarDetailsTest();
+            //CarDetailsTest();
             //CarAdd();
             //CarDelete();
             //CarUpdate();
-            
+
+            RentalAdd();
+
+        }
+
+        private static void RentalAdd()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(new Rental { CarId = 3, CustomerId = 1, RentDate = DateTime.Today });
         }
 
         private static void CarUpdate()
@@ -33,7 +41,7 @@ namespace ConsoleUI
         private static void CarAdd()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car {  ModelName = "Megane", ModelYear = 2012, DailyPrice = 120, Description = "Günlük", ColorId = 3,BrandId=1  });
+            carManager.Add(new Car { ModelName = "Megane", ModelYear = 2012, DailyPrice = 120, Description = "Günlük", ColorId = 3,BrandId=1  });
             
            
         }
