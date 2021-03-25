@@ -13,8 +13,8 @@ namespace Core.DependencyResolvers
     public class CoreModule : ICoreModule
     {
         public void Load(IServiceCollection serviceCollection)
-        {
-            serviceCollection.AddMemoryCache();
+        {                                                                                   //Servis bağımlılıklarımızı çözümlediğimiz yer.
+            serviceCollection.AddMemoryCache();                                             //Ortak katmanı ilgilendirir sadece
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
             serviceCollection.AddSingleton<Stopwatch>();

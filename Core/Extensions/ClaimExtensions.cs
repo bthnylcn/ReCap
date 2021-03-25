@@ -30,3 +30,5 @@ namespace Core.Extensions
         }
     }
 }
+
+//extension classları static olması gerekiyor.

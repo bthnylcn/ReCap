@@ -20,3 +20,6 @@ namespace Core.Extensions
         }
     }
 }
+//Extension classları static olması gerekiyor.
+//Apimizin servis bağımlılıklarını yada interceptorları eklediğimiz koleksiyondur.
+//Tüm injectionları bir araya toplayabileceğimiz yapı.

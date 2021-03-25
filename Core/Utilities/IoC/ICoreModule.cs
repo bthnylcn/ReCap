@@ -7,6 +7,8 @@ namespace Core.Utilities.IoC
 {
     public interface ICoreModule
     {
-        void Load(IServiceCollection serviceCollection);
+        void Load(IServiceCollection serviceCollection);                
     }
 }
+
+//.net servislerini yüklememize yarıyor.

@@ -39,20 +39,10 @@ namespace Business.Concrete
 
 		}
 
-		public IDataResult<List<Brand>> GetAll(Expression<Func<Brand, bool>> filter = null)
-		{
-			return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
-		}
-
         public IDataResult<List<Brand>> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        //public IDataResult<List<Brand>> GetAllByBrandId(int id)
-        //{
-        //	return _brandDal.GetAll(b => b.BrandId==id);
-        //}
+			return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
+		}
 
         public IDataResult<List<Brand>> GetById(int id)
 		{

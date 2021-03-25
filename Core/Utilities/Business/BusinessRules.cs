@@ -23,3 +23,4 @@ namespace Core.Utilities.Business
 
     }
 }
+//İş kurallarını bir araya getirerek temiz kod yazmamızı sağlıyor.

@@ -14,13 +14,15 @@ namespace Core.Utilities.Security.JWT
 {
     public class JwtHelper : ITokenHelper
     {
-        public IConfiguration Configuration { get; }
-        private TokenOptions _tokenOptions;
+         
+        public IConfiguration Configuration { get; }                
+        private TokenOptions _tokenOptions;                         
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
+            
             Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();  
 
         }
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
@@ -66,3 +68,6 @@ namespace Core.Utilities.Security.JWT
         }
     }
 }
+//public IConfiguration Configuration { get; } appsetting.json daki verileri okumayabilmek için
+//private TokenOptions _tokenOptions;  okunan değerleri bir nesneye atıyoruz
+//Get<TokenOptions>() appsettings'de yazan değerleri TokenOptions classına yaz.

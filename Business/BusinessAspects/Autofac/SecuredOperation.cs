@@ -14,7 +14,7 @@ namespace Business.BusinessAspects.Autofac
     public class SecuredOperation : MethodInterception
     {
         private string[] _roles;
-        private IHttpContextAccessor _httpContextAccessor;
+        private IHttpContextAccessor _httpContextAccessor;              //Binlerce isteğin her biri için birer thread oluşturur.
 
         public SecuredOperation(string roles)
         {
@@ -23,7 +23,7 @@ namespace Business.BusinessAspects.Autofac
 
         }
 
-        protected override void OnBefore(IInvocation invocation)
+        protected override void OnBefore(IInvocation invocation)        //Verilen parametreyle kullanıcı yetkisi uyuşuyor mu kontrol et.
         {
             var roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
             foreach (var role in _roles)
