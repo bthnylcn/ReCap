@@ -12,3 +12,5 @@ namespace Core.Utilities.IoC
 }
 
 //.net servislerini yüklememize yarıyor.
+//Üst seviyeli sınıflar alt seviyeli sınıfları kullanırken interfaceleri üzerinden kullanır
+//üst seviyeli sınıfın ihtiyaç duyduğu nesnenin instance(örneğini)tutuyor.

@@ -20,7 +20,7 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {                                                                                           //Servis bağımlılıklarımızı çözümlediğimiz yer.
                                                                                                     //Sadece business katmanını ilgilendirir
-            builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();              
+            builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();                  //Her bir istek için birer örnek oluşturur
             builder.RegisterType<EfCarDal>().As<ICarDal>().SingleInstance();
 
             builder.RegisterType<BrandManager>().As<IBrandService>().SingleInstance();

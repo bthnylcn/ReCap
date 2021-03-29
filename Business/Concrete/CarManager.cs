@@ -21,88 +21,54 @@ namespace Business.Concrete
             _carDal = carDal;
         }
         [ValidationAspect(typeof(CarValidator))]
-        public IResult Add(Car car)
-        {
-            _carDal.Add(car);
-            return new SuccessResult(Messages.CarAdded);
-
-        }
-        public IResult Update(Car car)
-        {
-            if ((car.ModelName.Length < 2) && (car.DailyPrice <= 0))
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-
-            }
-            _carDal.Update(car);
-            return new SuccessResult(Messages.CarUpdated);
-        }
-
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
-        }
-
-        public IDataResult<List<Car>> GetById(int carId)
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == carId));
-        }
-
-        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId));
-        }
-
-        public IDataResult<List<Car>> GetCarsByColorId(int colorId)
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
+            _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(Messages.CarsListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return new SuccessDataResult < List < CarDetailDto >> (_carDal.GetCarDetails());
-        }
-
-        public IResult Delete(Car car)
-        {
-            if (DateTime.Now.Hour == 19)
-            {
-                return new ErrorResult(Messages.MaintenanceTime);
-
-            }
-            _carDal.Delete(car);
-            return new SuccessResult(Messages.CarDeleted);
-
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetailsByBrand(int brandId)
         {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByColor(int colorId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByColorAndByBrand(int colorId, int brandId)
-        {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(b=>b.BrandId==brandId),Messages.CarsListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetailsByCar(int carId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(b => b.Id == carId), Messages.CarsListed);
         }
 
-        IDataResult<Car> ICarService.GetById(int carId)
+        public IDataResult<Car> GetById(int carId)
         {
-            throw new NotImplementedException();
+            _carDal.Get((c => c.Id == carId));
+            return new SuccessDataResult<Car>(Messages.CarsListed);
+        }
+
+        public IResult Add(Car car)
+        {
+            _carDal.Add(car);
+            return new SuccessDataResult<Car>(Messages.CarAdded);
+        }
+
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessDataResult<Car>(Messages.CarDeleted);
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessDataResult<Car>(Messages.CarUpdated);
         }
 
         public IResult TransactionalTest(Car car)
         {
             throw new NotImplementedException();
         }
-    }
+    }  
 }

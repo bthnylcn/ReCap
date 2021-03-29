@@ -15,7 +15,7 @@ namespace Core.DependencyResolvers
         public void Load(IServiceCollection serviceCollection)
         {                                                                                   //Servis bağımlılıklarımızı çözümlediğimiz yer.
             serviceCollection.AddMemoryCache();                                             //Ortak katmanı ilgilendirir sadece
-            serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();    //Singleton 1 kere yapılıp herkes onu kullanır
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
             serviceCollection.AddSingleton<Stopwatch>();
         }

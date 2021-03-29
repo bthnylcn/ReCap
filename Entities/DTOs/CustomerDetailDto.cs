@@ -10,7 +10,7 @@ namespace Entities.DTOs
         public int CustomerId { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
-        public String UserLastName { get; set; }
+        public string UserLastName { get; set; }
         public string CompanyName { get; set; }
 
     }

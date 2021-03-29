@@ -59,6 +59,9 @@ namespace Business.Constants
         public static string CarImageLimitExceeded = "Fotoğraf yükleme limitine takıldınız. En fazla 5 fotoğraf eklenebilir.";
         public static string AccessTokenCreated = "Token Oluşturuldu";
         public static string CanNotBeBlank = "Alan Boş Olamaz";
-        
+        internal static string CarCheckImageLimited;
+        internal static string CarImagesListed;
+        internal static string CarImageDeleted;
+        internal static string CarImageAdded;
     }
 }

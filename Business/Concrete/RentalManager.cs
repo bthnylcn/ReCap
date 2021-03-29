@@ -18,37 +18,34 @@ namespace Business.Concrete
         public IResult Add(Rental rental)
         {
             _rentalDal.Add(rental);
-            return new SuccessResult(Messages.CarAdded);
+            return new SuccessResult(Messages.RentalAdded);
         }
 
         public IResult Delete(Rental rental)
         {
-            throw new System.NotImplementedException();
+            _rentalDal.Delete(rental);
+            return new SuccessResult(Messages.RentalDeleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);
         }
 
         public IDataResult<Rental> GetById(int rentalId)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public IDataResult<List<Rental>> GetRentalByUndelivered()
-        {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == rentalId), Messages.RentalListed);
         }
 
         public IDataResult<List<CarRentalDetailDto>> GetRentalDetails()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<CarRentalDetailDto>>(_rentalDal.GetCarRentalDetails(), Messages.RentalListed);
         }
 
         public IResult Update(Rental rental)
         {
-            throw new System.NotImplementedException();
+            _rentalDal.Update(rental);
+            return new SuccessResult(Messages.RentalUpdated);
         }
     }
 

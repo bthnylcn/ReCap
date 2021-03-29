@@ -13,52 +13,41 @@ using System.Text;
 
 namespace Business.Concrete
 {
-	public class BrandManager : IBrandService
-	{
-		IBrandDal _brandDal;
+    public class BrandManager : IBrandService
+    {
+        IBrandDal _brandDal;
 
-		public BrandManager(IBrandDal brandDal)
-		{
-			_brandDal = brandDal;
-		}
-		[SecuredOperation("admin")]
-		[ValidationAspect(typeof(BrandValidator))]
-		public IResult Add(Brand entity)
-		{
+        public BrandManager(IBrandDal brandDal)
+        {
+            _brandDal = brandDal;
+        }
+        [SecuredOperation("admin")]
+        [ValidationAspect(typeof(BrandValidator))]
+        public IResult Add(Brand brand)
+        {
+            _brandDal.Add(brand);
+            return new SuccessResult(Messages.BrandAdded);
+        }
 
-			_brandDal.Add(entity);
-			return new SuccessResult(Messages.BrandAdded);
-		}
-
-		[SecuredOperation("admin")]
-		public IResult Delete(Brand entity)
-		{
-
-			_brandDal.Delete(entity);
-			return new SuccessResult(Messages.BrandDeleted);
-
-		}
+        public IResult Delete(Brand brand)
+        {
+            _brandDal.Delete(brand);
+            return new SuccessResult(Messages.BrandDeleted); 
+        }
+        public IResult Update(Brand brand)
+        {
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.BrandUpdated); 
+        }
 
         public IDataResult<List<Brand>> GetAll()
         {
-			return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
-		}
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
+        }
 
-        public IDataResult<List<Brand>> GetById(int id)
-		{
-			return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.Id == id));
-		}
-		[SecuredOperation("admin")]
-		public IResult Update(Brand entity)
-		{
-			_brandDal.Update(entity);
-			return new SuccessResult(Messages.BrandUpdated);
-		}
-
-        IDataResult<Brand> IBrandService.GetById(int brandId)
+        public IDataResult<List<Brand>> GetByBrandId(int Id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.Id == Id), Messages.BrandsListed);
         }
     }
-
 }
